@@ -1,10 +1,22 @@
 
 spring:
+  application:
+    name: home-manager
   jpa:
-    show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
   datasource:
-    url: jdbc:postgresql://localhost/homeManager
+    driver-class-name: org.postgresql.Driver
     username:
     password:
+    url: jdbc:postgresql://localhost:5432/homeManager
+    platform: postgres
+    initialization-mode: always
+    continue-on-error: true
+#    data: classpath:data.sql
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    guru.springframework.controllers: DEBUG
+    org.hibernate: DEBUG

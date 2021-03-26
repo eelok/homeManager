@@ -3,21 +3,21 @@ package homeManager.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Counters")
+@Table(name="counters")
 public class CounterData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="cold_water", nullable = false)
-    private double cold;
+    private int cold;
 
     @Column(name="hot_water", nullable = false)
-    private double hot;
+    private int hot;
 
     @Column(name="electricity", nullable = false)
-    private double electricity;
+    private int electricity;
 
 
     public CounterData() {
