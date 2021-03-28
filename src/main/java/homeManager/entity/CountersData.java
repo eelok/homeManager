@@ -1,10 +1,17 @@
 package homeManager.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name="counters")
-public class CounterData {
+public class CountersData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +26,4 @@ public class CounterData {
     @Column(name="electricity", nullable = false)
     private int electricity;
 
-
-    public CounterData() {
-    }
 }
