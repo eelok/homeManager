@@ -15,7 +15,11 @@ public class CounterDataService {
         this.counterDataRepository = counterDataRepository;
     }
 
-    public List<CountersData> getAllCountersData(){
+    public List<CountersData> getAllCountersData() {
         return counterDataRepository.findAll();
+    }
+
+    public CountersData save(CountersData countersData){
+        return counterDataRepository.save(countersData);
     }
 }

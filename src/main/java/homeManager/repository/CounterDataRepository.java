@@ -8,4 +8,6 @@ import java.util.List;
 public interface CounterDataRepository extends JpaRepository<CountersData, Long> {
 
     List<CountersData> findAll();
+
+    CountersData save(CountersData countersData);
 }
