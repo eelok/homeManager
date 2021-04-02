@@ -5,6 +5,7 @@ import homeManager.repository.CounterDataRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CounterDataService {
@@ -19,7 +20,18 @@ public class CounterDataService {
         return counterDataRepository.findAll();
     }
 
-    public CountersData save(CountersData countersData){
+    public CountersData save(CountersData countersData) {
         return counterDataRepository.save(countersData);
+    }
+
+    public CountersData updateCountersData(CountersData countersFromDB, CountersData itemWithNewData) {
+        countersFromDB.setCold(itemWithNewData.getCold());
+        countersFromDB.setHot(itemWithNewData.getHot());
+        countersFromDB.setElectricity(itemWithNewData.getElectricity());
+        return countersFromDB;
+    }
+
+    public Optional<CountersData> findById(int counterId) {
+        return counterDataRepository.findById(counterId);
     }
 }

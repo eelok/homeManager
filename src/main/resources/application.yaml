@@ -3,8 +3,13 @@ spring:
   application:
     name: home-manager
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      jdbc:
+       time_zone: UTC
   datasource:
     driver-class-name: org.postgresql.Driver
     username:
@@ -13,7 +18,8 @@ spring:
     platform: postgres
     initialization-mode: always
     continue-on-error: true
-#    data: classpath:data.sql
+  jackson:
+    date-format: dd-MM-yyyy HH:mm:ss
 
 logging:
   level:
