@@ -1,0 +1,11 @@
+version: "3"
+services:
+  postgres-user:
+    image: "postgres"
+    container_name: "user"
+    environment:
+      - POSTGRES_USER=${PG_USER_NAME}
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - POSTGRES_DB=homeManager
+    ports:
+      - "5432:5432"

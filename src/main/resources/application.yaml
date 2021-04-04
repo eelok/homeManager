@@ -12,8 +12,8 @@ spring:
        time_zone: UTC
   datasource:
     driver-class-name: org.postgresql.Driver
-    username:
-    password:
+    username: ${PG_USER_NAME}
+    password: ${PG_PASS}
     url: jdbc:postgresql://localhost:5432/homeManager
     platform: postgres
     initialization-mode: always
