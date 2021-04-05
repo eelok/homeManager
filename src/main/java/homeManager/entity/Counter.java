@@ -1,35 +1,42 @@
 package homeManager.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import homeManager.constant.TypeCounter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="counters")
-    public class CountersData {
+@JsonPropertyOrder({"id", "type", "value", "timestamp"})
+@Table(name="counter")
+    public class Counter {
 
+    @JsonProperty("id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="cold_water", nullable = false)
-    private int cold;
+    @JsonProperty("type")
+    @Column(name = "type", nullable = false)
+    private TypeCounter typeCounter;
 
-    @Column(name="hot_water", nullable = false)
-    private int hot;
+    @NotNull
+    @JsonProperty("value")
+    @Column(name = "value")
+    private int value;
 
-    @Column(name="electricity", nullable = false)
-    private int electricity;
-
-
+    @JsonProperty("timestamp")
     @Column
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
