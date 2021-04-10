@@ -34,7 +34,7 @@ import java.time.LocalDateTime;
     @NotNull
     @JsonProperty("value")
     @Column(name = "value")
-    private int value;
+    private double value;
 
     @JsonProperty("timestamp")
     @Column
