@@ -1,9 +1,9 @@
 package homeManager.constant;
 
 public enum TypeCounter {
-    COLD(0),
-    HOT(1),
-    ELECTRICITY(2);
+    cold(0),
+    hot(1),
+    electricity(2);
 
     private final int countersType;
 

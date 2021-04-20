@@ -6,7 +6,6 @@ import homeManager.repository.CounterRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CounterService {
@@ -27,6 +26,10 @@ public class CounterService {
                 .findFirstByTypeCounterOrderByIdDesc(counter.getTypeCounter())
                 .map(dbCounter -> dbCounter.getValue() < counter.getValue())
                 .orElse(true);
+    }
+
+    public List<Counter> findAllByTypeCounter(TypeCounter typeCounter){
+        return this.counterRepository.findAllByTypeCounter(typeCounter);
     }
 
 }
